@@ -1,10 +1,10 @@
-const { createDogBd} = require('../controllers/getController');
+const { raceDogApi} = require('../controllers/getController');
 
 
-const getDogHandler = async(req, res) =>{
+const getDogRaceHandler = async(req, res) =>{
     const {name} = req.query;
     try {
-        const response = await createDogBd()
+        const response = await raceDogApi()
         res.status(200).json(response)
     } catch (error) {
         res.status(400).json({error:error.message})
@@ -30,4 +30,4 @@ const getNameHandler = async(req, res) =>{
 }
 
 
-module.exports = {getDogHandler, getIdHandler, getNameHandler};
+module.exports = {getDogRaceHandler, getIdHandler, getNameHandler};

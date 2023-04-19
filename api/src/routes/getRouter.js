@@ -1,10 +1,10 @@
 const {Router} = require('express');
-const {getDogHandler, getIdHandler, getNameHandler} = require('../handlers/dogGetHandler');
+const {getDogRaceHandler, getIdHandler, getNameHandler} = require('../handlers/dogGetHandler');
 
 const getRouter = Router();
 
 
-getRouter.get("/", getDogHandler);
+getRouter.get("/", getDogRaceHandler);
 
 getRouter.get("/dogs/:idRace", getIdHandler);
 

@@ -3,11 +3,13 @@ const {Dogs, Temperaments} = require ('../db');
 
 
 
-const createDogBd = async () =>{
-    return (await axios.get(`https://api.thedogapi.com/v1/breeds/`)).data;
+const raceDogApi = async () =>{
+    const raceDog =  (await axios.get(`https://api.thedogapi.com/v1/breeds/`)).data;
+    return raceDog.map(race => ({id:race.id,  breed_group: race.breed_group}))
+    
 }
 
 
 
 
-module.exports = {createDogBd};
+module.exports = {raceDogApi};
