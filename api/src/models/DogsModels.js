@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, Sequelize } = require ("sequelize");
 
 module.exports = (sequelize)=> {sequelize.define("Dogs",{
     id:{
@@ -12,13 +12,13 @@ module.exports = (sequelize)=> {sequelize.define("Dogs",{
         allowNull:false,
    },
    height:{
-        type:DataType.INTEGER,
+        type:DataTypes.INTEGER,
    },
    weight:{
-        type:DataType.INTEGER,
+        type:DataTypes.INTEGER,
    },
-   age:{
-        type:DataType.INTEGER,
+   life_span:{
+        type:DataTypes.INTEGER,
    },
    created:{
     type: DataTypes.BOOLEAN,

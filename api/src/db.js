@@ -1,8 +1,11 @@
 require('dotenv').config();
-const { Sequelize, DataTypes } = require('sequelize');
+const {Sequelize, DataTypes} = require ("sequelize");
 const fs = require('fs');
 const path = require('path');
 const {DB_USER, DB_PASSWORD, DB_HOST,DB_NAME} = process.env;
+const DogsModels = require('./models/DogsModels')
+const TemperamentsModels = require('./models/TemperamentsModels')
+
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
   logging: false, // No muestra en consola cuando ejecuta un comando.
@@ -20,8 +23,6 @@ const {Dogs, Temperaments} = sequelize.models; //define() es el metodo que defin
 
 Dogs.hasMany(Temperaments);
 Temperaments.hasMany(Dogs);
-
-
 
 
 module.exports = {
