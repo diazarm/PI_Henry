@@ -1,21 +1,23 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const routes = require('./routes/index.js');
-const index = require ('./routes/index.js')
+const mainRouter = require('./routes/mainRouter.js');
+//const cookieParser = require('cookie-parser');
+//const bodyParser = require('body-parser');
+//const routes = require('./routes/index.js');
+//const index = require ('./routes/index.js');
+//require('./db.js');
 
-require('./db.js');
+const app = express();
 
-const server = express();
+app.use(morgan('dev'));
 
-server.use(morgan('dev'));
-server.use(express.json());
-server.use(index);
+app.use(express.json());
+
+app.use(mainRouter);
 
 
 
-module.exports = server;
+module.exports = app;
 
 
 

@@ -24,13 +24,15 @@ const getIdHandler = async(req, res) =>{
 };
 
 const getNameHandler = async(req, res) =>{
+    res.send("get de name")
+    
+};
 
-    try {
-        
-    } catch (error) {
-        
-    }
+const getTemperamentsHandler = async(req, res) =>{
+    
 }
 
+const postDogHandler = async(req, res) => {
 
-module.exports = {getDogRaceHandler, getIdHandler, getNameHandler};
+}
+module.exports = {getDogRaceHandler, postDogHandler,getIdHandler, getNameHandler,getTemperamentsHandler};
