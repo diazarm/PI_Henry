@@ -1,10 +1,10 @@
 const { Router } = require('express');
-const getRouter = require ('./getRouter');
+const dogRouter = require ('./dogRouter');
 const tempRouter = require ('./tempRouter.js');
 
 const mainRouter = Router();
 
-mainRouter.use("/", getRouter);
+mainRouter.use("/", dogRouter);
 
 mainRouter.use("/", tempRouter);
 

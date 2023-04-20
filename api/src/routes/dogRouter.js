@@ -4,23 +4,23 @@ const  {getDogRaceHandler,
         getNameHandler, 
        } = require('../handlers/dogGetHandler');
 
-const getRouter = Router();
+const dogRouter = Router();
 
 
-getRouter.get("/dogs", getDogRaceHandler);
+dogRouter.get("/dogs", getDogRaceHandler);
 
-getRouter.get("/dogs/:id", getIdHandler);
-// getRouter.get("/dogs/:id",(req, res) =>{
+dogRouter.get("/dogs/:id", getIdHandler);
+// dogRouter.get("/dogs/:id",(req, res) =>{
 //         res.send("ruta de la info por id")
 // });
 
 
-//getRouter.get("/dogs/name", getNameHandler);
-getRouter.get("/dogs/name", (req, res)=>{
+//dogRouter.get("/dogs/name", getNameHandler);
+dogRouter.get("/dogs/name", (req, res)=>{
         res.send("ruta que trae los nombres")
 });
 
-getRouter.post("/dogs", (req, res) =>{
+dogRouter.post("/dogs", (req, res) =>{
         res.send("aqui va el post para crear un perro")
 })
-module.exports = getRouter;
+module.exports = dogRouter;
