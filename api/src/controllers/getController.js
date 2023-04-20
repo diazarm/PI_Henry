@@ -9,7 +9,11 @@ const raceDogApi = async () =>{
     
 }
 
+const getUserById = async(id) => {
+   const response =  (await axios.get(`https://api.thedogapi.com/v1/breeds/${id}`)).data 
+   // : await Dogs.findByPk(id);
+   return response.description; 
+}
 
 
-
-module.exports = {raceDogApi};
+module.exports = {raceDogApi, getUserById};

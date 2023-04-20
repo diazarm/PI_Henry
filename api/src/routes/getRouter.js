@@ -6,7 +6,7 @@ const getRouter = Router();
 
 getRouter.get("/", getDogRaceHandler);
 
-getRouter.get("/dogs/:idRace", getIdHandler);
+getRouter.get("/:id", getIdHandler);
 
 getRouter.get("/dogs/name", getNameHandler);
 
