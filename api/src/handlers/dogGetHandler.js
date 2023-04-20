@@ -13,30 +13,18 @@ const getDogRaceHandler = async(req, res) =>{
 
 const getIdHandler = async(req, res) =>{
     const  {id} = req.params;
-    if (isNaN(id)) {res.send("muestra el perro por NOMBRE")}
-    else {res.send("muestra el perro por id")}
-    
-/*    
-    const source = isNaN(id) ? 'bdd' : 'api'
-    try {
-        const response = await getUserById(id, source)
-        res.status(200).json(response);
-    } catch (error) {
-        res.status(400).json({error:error.message})
-    }
-  */  
+    isNaN(id) ? res.send("muestra el perro por NOMBRE desde la BDD") : res.send("muestra el perro por id");
+
 };
 
-const getNameHandler = async(req, res) =>{
-    res.send("muestra el perro porname")
+ const getNameHandler = async(req, res) =>{
+       res.send("muestra el perro porname por query")
     
-};
-
-const getTemperamentsHandler = async(req, res) =>{
-    
-}
+ };
 
 const postDogHandler = async(req, res) => {
-
+    res.send("aqui va el post para crear un perro")
 }
-module.exports = {getDogRaceHandler, postDogHandler,getIdHandler, getNameHandler,getTemperamentsHandler};
+
+
+module.exports = {getDogRaceHandler, postDogHandler,getIdHandler, getNameHandler};
