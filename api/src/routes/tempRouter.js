@@ -5,7 +5,7 @@ const getTemperamentsHandler = require("../handlers/getTemperamentsHandler")
 
 const tempRouter = Router();
 //tempRouter.get("/temperaments", getTemperamentsHandler);
-tempRouter.get("/temperaments", (req, res)=>{
+tempRouter.get("/", (req, res)=>{
      res.send ("ruta del temperamento");
 });
 

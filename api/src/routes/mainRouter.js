@@ -4,9 +4,9 @@ const tempRouter = require ('./tempRouter.js');
 
 const mainRouter = Router();
 
-mainRouter.use("/", dogRouter);
+mainRouter.use("/dogs", dogRouter);
 
-mainRouter.use("/", tempRouter);
+mainRouter.use("/temperaments", tempRouter);
 
 
 module.exports = mainRouter;

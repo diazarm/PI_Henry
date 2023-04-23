@@ -7,12 +7,12 @@ const  {getDogRaceHandler,
 const dogRouter = Router();
 
 
-dogRouter.get("/dogs", getDogRaceHandler);
+dogRouter.get("/", getDogRaceHandler);
 
-dogRouter.get("/dogs/name", getNameHandler);
+dogRouter.get("/:idRaza", getIdHandler);
 
-dogRouter.get("/dogs/:id", getIdHandler);
+dogRouter.get("/name", getNameHandler);
 
-dogRouter.post("/dogs", postDogHandler);
+dogRouter.post("/", postDogHandler);
 
 module.exports = dogRouter;
