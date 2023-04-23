@@ -2,10 +2,10 @@ const axios = require ('axios');
 const {Dogs, Temperaments} = require ('../db');
 const {API_KEY} = process.env;
 
-//const LinkApi = 
+const LinkApi = `https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`;
 
 const raceDogApi = async () =>{
-    const raceDog =  (await axios.get(`https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`)).data;
+    const raceDog =  (await axios.get(LinkApi)).data;
     return raceDog.map(race => ({id:race.id, image:race.image, name:race.name, height:race.height, weight: race.weight, life_span: race.life_span  }))
     
 }
@@ -18,20 +18,24 @@ const raceDogApi = async () =>{
 // }
 
 const getUserById = async (id, source) => {
-    const urlData = (await axios.get(`https://api.thedogapi.com/v1/breeds/${id}/?api_key=${API_KEY}`)).data;
-    const dogId = source === "api"
-      ? {
-          id: urlData.id,
-          name: urlData.name,
-          height: urlData.height.metric,
-          weight: urlData.weight.metric,
-          life_span: urlData.life_span,
-          image: urlData.image,
-          created:false, 
-        }
-      : await Dogs.findByPk(id);
-    return dogId;
+  const urlData = (await axios.get(LinkApi)).data;
+  if (source === "api") {
+    const apiFiltrada = urlData.filter(ele => ele.id === Number(id));
+    const nuevo = {
+          id: apiFiltrada[0].id,
+          name: apiFiltrada[0].name,
+          height: apiFiltrada[0].height.metric,
+          weight: apiFiltrada[0].weight.metric,
+          life_span: apiFiltrada[0].life_span,
+          image: apiFiltrada[0].image.url,
+          created: false,
+        };
+        return nuevo;
+  } else {
+    return await Dogs.findByPk(id);
   }
+};
+
 
 
 
