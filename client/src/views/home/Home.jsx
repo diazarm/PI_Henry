@@ -1,41 +1,42 @@
 import React from 'react';
 import {  useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Card from "../../components/card/Card";
 import getDogs from "../../redux/action";
 import NavBar from '../../components/navbar/NavBar';
-import Card from "../../components/card/Card";
 import style from "../home/Home.module.css";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Home = () => {
     const dispatch = useDispatch();
     const allDogs = useSelector((state) => state.dogs);
 
+    //const [currentPage, setCurrentPage] = useState(1);
+    //const [cardPerPage, setCardPerPage] = useState(4);
+
+
     useEffect(() => {
         dispatch(getDogs());
     }, [dispatch]);
 
-    // se elimina el parametro ele de la función handleClick
-    function handleClick() {
+    function handleClick(ele) {
+        ele.preventDefault();
         dispatch(getDogs());
-    }
+    };
 
     return (
         <div>
-            <div className={`${style.second_title}`}>
-            <h1 >Cuatro Patas</h1>
-            <h3>Bienvenidos</h3>
+            <div className={style.createDog}>
+                <Link to="/Form">Crear Perro</Link>
             </div>
-            
+            <div className={style.welcome}>
+                <h1 >Cuatro Patas</h1>
+                <h3>Bienvenidos</h3>
+            </div>
             <button onClick={handleClick}>
                 volver a cargar los perros
             </button>
-        <div className={`${style.title}`}>
-            <Link to="/Form">Crear Perro</Link>
-        </div>
-        <div>
                 <NavBar />
-            {/* aca vienen los filtros */}
                 <select>
                     <option value="asc">Ascendente</option>
                     <option value="desc">Descendente</option>
@@ -49,20 +50,23 @@ const Home = () => {
                     <option value="created">Creados</option>
                     <option value="api">Existentes</option>
                 </select>
-            <div className={`${style.wrapper}`}>
-                {/* se agrega una condición para manejar la situación en la que allDogs es undefined o null */}
-                {allDogs && allDogs.map((ele) => {
-                    return (
-                        <div key={ele.id} >
-                            <Link to={"/home/" + ele.id}>
-                                <Card name={ele.name} image={ele.image} height={ele.height} weight={ele.weight} life_span={ele.life_span} />
-                            </Link>
-                        </div>
-                    );
-                })}
-            </div>
-            </div>
+                    {/* se agrega una condición para manejar la situación en la que allDogs es undefined o null */}
+                <div className={style.cards}>
+                    {allDogs?.map((ele) => {
+                        return (
+                            <div>
+                                <NavLink className={style.link} to={"/detail"}>
+                                    <Card id= {ele.id} name={ele.name} image={ele.image} 
+                                    height={ele.height} weight={ele.weight} 
+                                    life_span={ele.life_span} />
+                                </NavLink>
+                            </div>
+                        );
+                    })}
+                </div>
         </div>
+                    
+    
     );
 };
 
