@@ -5,9 +5,9 @@ export default function Card ({name, image, height, weight, life_span}) {
     return (
         <div className={`${style.card_container}`}>
             <h2>{name}</h2>
-            <img src={image} alt="random" width="200px" height="250px" />
-            <p>{height}</p>
-            <p>{weight}</p>
+            <img src={image} alt="random" width="250px" height="250px" />
+            <p>Altura: {height}</p>
+            <p>Peso: {weight}</p>
             <p>Prom de vida: {life_span}</p>
         </div>
     )
