@@ -13,11 +13,12 @@
 
 .nav{
     color: rgb(183, 174, 169);
-    background-color: white;
+    background-color: rgba(141, 133, 133, 0.753);
     width:fit-content;
     border: 1px solid rgb(249, 107, 13);
     text-align: center;
-    height: 50px;
-    margin-top: 10px;
+    height: 64px;
+    padding: 0px 5px 5px 5px;
     margin-left: 550px;
+    border-radius: 20px;
 }

@@ -1,8 +1,8 @@
-import Home from './views/home/Home';
+import {Route, Switch, BrowserRouter } from "react-router-dom";
+import Home from "../src/views/home/Home";
 import LandingPage from './views/landing/LandingPage';
 import FormAddDog from "./views/form/FormAddDog";
 import DogDetails from "./views/detail/DogDetails";
-import {Route, Switch, BrowserRouter } from "react-router-dom";
 //import './App.css';
 
 function App() {

@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from "../../components/card/Card";
 import getDogs from "../../redux/action";
-import NavBar from '../../components/navbar/NavBar';
+import NavBar from '../../components/searchBar/SearchBar';
 import style from "../home/Home.module.css";
-import { Link, NavLink } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import Paginado from '../../components/paginate/Paginate';
 
 
@@ -14,7 +14,7 @@ const Home = () => {
     const allDogs = useSelector((state) => state.dogs);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [cardPerPage, setCardPerPage] = useState(8);
+    const [cardPerPage] = useState(8);
     const indexOfLastCard = currentPage * cardPerPage;
     const indexOfFirstCard = indexOfLastCard - cardPerPage;
     const currentCard = allDogs.slice(indexOfFirstCard, indexOfLastCard);
@@ -22,8 +22,6 @@ const Home = () => {
     const paginado = (pageNumber) =>{
         setCurrentPage(pageNumber)
     }
-
-
 
     useEffect(() => {
         dispatch(getDogs());
@@ -37,28 +35,36 @@ const Home = () => {
     return (
         <div>
             <div className={style.createDog}>
-                <Link to="/Form">Crear Perro</Link>
+                <NavLink to="/Form">Crear Perro</NavLink>
+            </div>
+            <div className={style.logo}>
+                <h1 >Cuatro Patas</h1>
             </div>
             <div className={style.welcome}>
-                <h1 >Cuatro Patas</h1>
                 <h3>Bienvenidos</h3>
             </div>
-            <button onClick={handleClick}>
-                volver a cargar los perros
-            </button>
+            <div className={style.deleteFilter}>
+                <button onClick={handleClick}>
+                    Eliminar los filtros
+                </button>
+            </div>
+            
                 <NavBar />
                 <select>
-                    <option value="asc">Ascendente</option>
-                    <option value="desc">Descendente</option>
+                    <option disabled selected defaultValue>Temperamento</option>
+                    <option value="bdd-api">Todos </option>
+                    <option value="bdd">Todos de la Bdd</option>
+                    <option value="api">Todos de la Api</option>
                 </select>
                 <select>
-                    <option value="alive">vivo</option>
-                    <option value="dead">muerto</option>
+                    <option disabled selected defaultValue>Ordenado alfabeticamente</option>
+                    <option value="A-Z">A-Z</option>
+                    <option value="Z-A">Z-A</option>
                 </select>
                 <select>
-                    <option value="all">Todos</option>
-                    <option value="created">Creados</option>
-                    <option value="api">Existentes</option>
+                    <option disabled selected defaultValue>Filtrado por Peso</option>
+                    <option value="max_weight">Max</option>
+                    <option value="min_weight">Min</option>
                 </select>
 
                 <Paginado
@@ -69,17 +75,21 @@ const Home = () => {
                     {/* se agrega una condición para manejar la situación en la que allDogs es undefined o null */}
                 <div className={style.cards}>
                     {currentCard?.map((ele) => {
+                        console.log(ele)
                         return (
                             <div>
                                 <NavLink className={style.link} to={"/home/" + ele.id }>
                                     <Card id= {ele.id} name={ele.name} image={ele.image} 
-                                    height={ele.height} weight={ele.weight} 
-                                    life_span={ele.life_span} />
+                                    weight={ele.weight} temperament={ele.temperament} />
                                 </NavLink>
-                            </div>
+                        </div>
                         );
                     })}
                 </div>
+                    <Paginado
+                    cardPerPage={cardPerPage}
+                    allDogs={allDogs.length}
+                    paginado={paginado}/>
         </div>
                     
     

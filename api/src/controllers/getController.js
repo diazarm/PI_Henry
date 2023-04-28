@@ -15,6 +15,7 @@ const raceDogApi = async () =>{
         height:race.height.metric, 
         weight: race.weight.metric, 
         life_span: race.life_span,
+        temperament: race.temperament,
         created:false  }));
 };
 
@@ -64,7 +65,8 @@ const getAllDogs =async() => {
         height:elem.heigt,
         weight:elem.weight,
         life_span:elem.life_span,
-        image:elem.image
+        image:elem.image,
+        temperament:elem.temperament
       };
    });
     const apiDogs = cleanArray(apiDogsRaw)   

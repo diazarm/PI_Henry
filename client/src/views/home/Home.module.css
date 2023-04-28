@@ -1,22 +1,33 @@
 body {
-    background-image: url(../home/wallpaperflare.com_wallpaper.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
+  background-image: url(../home/wallpaperflare.com_wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
 }
 
+.logo{
+  margin-left: 25px;
+  margin-bottom: 10px;
+  font-size: 35px;
+  color:rgba(15, 15, 16, 0.626);
+  text-shadow: 1px 5px 5px rgba(224, 224, 220, 0.4);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: fixed;
+  z-index: -1;
+}
 
 .welcome{
-    margin-left: 25px;
-    margin-bottom: 10px;
+    
+    margin-top: 30px;
     font-size: 35px;
     color:rgba(15, 15, 16, 0.626);
     text-shadow: 1px 5px 5px rgba(224, 224, 220, 0.4);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    position: fixed;
+    
     z-index: -1;
+    float: right;
 }
 
 .cards {
@@ -30,11 +41,26 @@ body {
   text-decoration: none;
   
 }
-  .createDog {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: black;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.createDog {
+  color: rgb(183, 174, 169);
+    background-color: rgba(141, 133, 133, 0.753);
+    width:fit-content;
+    border: 1px solid rgb(249, 107, 13);
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px;
+    float: right;
 
   }
+
+.deleteFilter{
+    color: rgb(183, 174, 169);
+    background-color: rgba(141, 133, 133, 0.753);
+    width:fit-content;
+    border: 1px solid rgb(249, 107, 13);
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px;
+    float: left;
+    
+}  

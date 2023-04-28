@@ -1,1 +1,2 @@
 const GET_ALL_DOGS = "GET_ALL_DOGS";
+const GET_NAME_DOGS = "GET_NAME_DOGS";

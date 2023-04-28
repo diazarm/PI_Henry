@@ -12,5 +12,31 @@ const getDogs = () => {
 };
 
 
+export function getNameDogs(name){
+    return async function (dispatch){
+        try {
+          const json = await axios.get(`http://localhost:3001/dogs/name/?name=${name}`);  
+        return dispatch({
+            type: 'GET_NAME_DOGS',
+            payload: json.data
+        })
+        }catch (error) {
+          console.log(error)  
+        }
+    }
+}
+
+
+
+
+
+export function filterDogByStatus(payload){
+    return{
+        type: 'FILTER_BY_VALUE',
+        payload
+    }
+}
+
+
+
 export default getDogs;
-//27:33 video
