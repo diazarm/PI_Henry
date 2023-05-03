@@ -8,59 +8,63 @@ body {
 }
 
 .logo{
-  margin-left: 25px;
-  margin-bottom: 10px;
-  font-size: 35px;
-  color:rgba(15, 15, 16, 0.626);
-  text-shadow: 1px 5px 5px rgba(224, 224, 220, 0.4);
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   text-align: center;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
   position: fixed;
+  left: 0;
+  top: 30px;
+  font-size: 35px;
+  color: rgba(15, 15, 16, 0.626);
+  text-shadow: 1px 5px 5px rgba(224, 224, 220, 0.4);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: fixed;
+  width: fit-content;
   z-index: -1;
 }
 
-.welcome{
-    
-    margin-top: 30px;
-    font-size: 35px;
-    color:rgba(15, 15, 16, 0.626);
-    text-shadow: 1px 5px 5px rgba(224, 224, 220, 0.4);
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
-    z-index: -1;
-    float: right;
-}
-
 .cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-    padding: 0 20px;
-    text-decoration: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  padding: 0 20px;
+  text-decoration: none;
+  width: fit-content;
+  margin-top: 150px;
   }
+
 .link{
   text-decoration: none;
   
 }
-.createDog {
-  color: rgb(183, 174, 169);
-    background-color: rgba(141, 133, 133, 0.753);
-    width:fit-content;
-    border: 1px solid rgb(249, 107, 13);
-    text-align: center;
-    padding: 10px 10px 10px 10px;
-    border-radius: 15px;
-    float: right;
-
-  }
 
 .deleteFilter{
-    color: rgb(183, 174, 169);
-    background-color: rgba(141, 133, 133, 0.753);
-    width:fit-content;
-    border: 1px solid rgb(249, 107, 13);
-    text-align: center;
-    padding: 10px 10px 10px 10px;
-    border-radius: 15px;
-    float: left;
+  color: rgb(183, 174, 169);
+  background-color: rgba(141, 133, 133, 0.753);
+  border: 1px solid rgb(249, 107, 13);
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  position: fixed;
+  left: 0;
+  top: 40px;
+  
     
 }  
+
+.filter{
+  color: rgb(183, 174, 169);
+  background-color: rgba(141, 133, 133, 0.753);
+  border: 1px solid rgb(249, 107, 13);
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  position: fixed;
+  right: 0;
+  top: 40px;
+  
+}
+.acomodando{
+    margin : 40px;
+    padding: 0;
+}

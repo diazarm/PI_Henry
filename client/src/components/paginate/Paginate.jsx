@@ -8,8 +8,8 @@ export default function Paginado({cardPerPage, allDogs, paginado}){
         pageNumber.push(i)
     }
     return (
-        <nav className={style.nav}>
-            <ul className={style.ul_container}>
+        <nav >
+            <ul  className={style.nav}>
               {
                 pageNumber?.map(number =>(
                     <li className={style.li_container}>

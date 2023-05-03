@@ -1,7 +1,7 @@
 const axios = require ('axios');
 const {Dogs, Temperaments} = require ('../db');
 const {API_KEY} = process.env;
-
+const fs = require('fs');
 const LinkApi = `https://api.thedogapi.com/v1/breeds/?api_key=${API_KEY}`;
 
 
@@ -54,24 +54,24 @@ const createNewDog = async(name, height, weight, life_span,image, created) =>{
 
 
 //muestra todos los perros de api y bdd 
-const getAllDogs =async() => {
-    const dataBaseDogs = await Dogs.findAll();
-    const apiDogsRaw = (await axios.get(LinkApi)).data 
-       
-    const cleanArray = (arr)=>arr.map((elem)=>{
-      return {
-        id:elem.id,
-        name:elem.name,
-        height:elem.heigt,
-        weight:elem.weight,
-        life_span:elem.life_span,
-        image:elem.image,
-        temperament:elem.temperament
-      };
-   });
-    const apiDogs = cleanArray(apiDogsRaw)   
-   return [...dataBaseDogs, ...apiDogs];
-   
+const getAllDogs = async() => {
+  const dataBaseDogs = await Dogs.findAll();
+  const apiDogsRaw = (await axios.get(LinkApi)).data;
+     
+  const cleanArray = (arr) => arr.map((elem) => {
+    return {
+      id: elem.id,
+      name: elem.name,
+      height: elem.height,
+      weight: elem.weight,
+      life_span: elem.life_span,
+      image: elem.image,
+      temperament: elem.temperament
+    };
+ });
+ 
+  const apiDogs = cleanArray(apiDogsRaw);   
+  return [...dataBaseDogs, ...apiDogs];
 };
 
 

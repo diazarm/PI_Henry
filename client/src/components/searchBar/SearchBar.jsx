@@ -6,8 +6,8 @@ import { getNameDogs } from '../../redux/action';
 
 function SearchBar() {
   const dispatch = useDispatch();
-  const [name, setName] = useState(" ")
-
+  const [name, setName] = useState("")
+  
 function handleInputChange(e){
   e.preventDefault()
   setName(e.target.value)
@@ -15,8 +15,8 @@ function handleInputChange(e){
 }
 
 function handleSubmit(e){
-  e.preventDefault()
-  dispatch(getNameDogs(name))
+  e.preventDefault();
+  dispatch(getNameDogs(name));
 }
 
   return (

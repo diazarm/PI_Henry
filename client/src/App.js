@@ -1,29 +1,15 @@
-import {Route, Switch, BrowserRouter } from "react-router-dom";
-import Home from "../src/views/home/Home";
-import LandingPage from './views/landing/LandingPage';
-import FormAddDog from "./views/form/FormAddDog";
-import DogDetails from "./views/detail/DogDetails";
-//import './App.css';
+import {Route, BrowserRouter } from "react-router-dom";
+import {Home, LandingPage, DogDetails, FormAddDog, NavBar} from "../src/index"
+
 
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <Switch>
-          <Route exact path="/">
-            <LandingPage/>
-          </Route>
-          <Route exact path="/home">
-            <Home/>
-          </Route>
-          <Route exact path="/dog-detail/:id">
-            <DogDetails />
-          </Route>
-          <Route exact path="/dog">
-            <FormAddDog />
-          </Route>
-        </Switch>
-      </div>
+          <Route exact path="/" component={LandingPage}/>
+          <NavBar/>
+          <Route exact path="/home" component={Home}/>
+          <Route exact path="/dog-detail/:id" component={DogDetails}/>
+          <Route exact path="/dog" component={FormAddDog}/>
     </BrowserRouter>
   );
 }

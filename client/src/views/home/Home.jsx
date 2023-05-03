@@ -1,12 +1,10 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import { React, useState, useEffect, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Card from "../../components/card/Card";
-import getDogs from "../../redux/action";
-import NavBar from '../../components/searchBar/SearchBar';
-import style from "../home/Home.module.css";
 import {  NavLink } from 'react-router-dom';
+import getDogs from "../../redux/action";
+import Card from "../../components/card/Card";
 import Paginado from '../../components/paginate/Paginate';
+import style from "../home/Home.module.css";
 
 
 const Home = () => {
@@ -34,22 +32,18 @@ const Home = () => {
 
     return (
         <div>
-            <div className={style.createDog}>
-                <NavLink to="/Form">Crear Perro</NavLink>
+            <div>
+                <div className={style.logo}>
+                    <h1 >Cuatro Patas</h1>
+                </div>
             </div>
-            <div className={style.logo}>
-                <h1 >Cuatro Patas</h1>
-            </div>
-            <div className={style.welcome}>
-                <h3>Bienvenidos</h3>
-            </div>
+            <div>
             <div className={style.deleteFilter}>
                 <button onClick={handleClick}>
                     Eliminar los filtros
                 </button>
             </div>
-            
-                <NavBar />
+            <div className={style.filter}>
                 <select>
                     <option disabled selected defaultValue>Temperamento</option>
                     <option value="bdd-api">Todos </option>
@@ -66,14 +60,10 @@ const Home = () => {
                     <option value="max_weight">Max</option>
                     <option value="min_weight">Min</option>
                 </select>
-
-                <Paginado
-                cardPerPage={cardPerPage}
-                allDogs={allDogs.length}
-                paginado={paginado}/>
-
-                    {/* se agrega una condición para manejar la situación en la que allDogs es undefined o null */}
-                <div className={style.cards}>
+            </div>
+            </div>
+            <div className={style.acomodando}>
+            <div className={style.cards}>
                     {currentCard?.map((ele) => {
                         console.log(ele)
                         return (
@@ -86,10 +76,14 @@ const Home = () => {
                         );
                     })}
                 </div>
-                    <Paginado
+            </div>
+                <div>
+                <Paginado
                     cardPerPage={cardPerPage}
                     allDogs={allDogs.length}
                     paginado={paginado}/>
+                </div>
+                   
         </div>
                     
     

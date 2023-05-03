@@ -1,14 +1,12 @@
-.ul_container{
-    padding: 0 0 5rem 0.5rem;
-}
+
 
 .li_container{
     list-style: none;
     float: left;
-    margin: 0.2rem;
     text-align: center;
-    color: black;
-    font-size: medium;
+    color: rgb(23, 22, 22);
+    padding: 0px 5px 5px 5px;
+
 }
 
 .nav{
@@ -17,8 +15,8 @@
     width:fit-content;
     border: 1px solid rgb(249, 107, 13);
     text-align: center;
-    height: 64px;
+    height: 19px;
     padding: 0px 5px 5px 5px;
-    margin-left: 550px;
-    border-radius: 20px;
+    margin-left: 660px;
+    border-radius: 30px;
 }
