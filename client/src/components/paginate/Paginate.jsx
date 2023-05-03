@@ -11,9 +11,9 @@ export default function Paginado({cardPerPage, allDogs, paginado}){
         <nav >
             <ul  className={style.nav}>
               {
-                pageNumber?.map(number =>(
-                    <li className={style.li_container}>
-                        <a onClick={()=> paginado(number)}>{number}</a>
+                pageNumber?.map(number  =>(
+                    <li className={style.li_container} key={number*5}>
+                        <a  onClick={()=> paginado(number)}>{number}</a>
                     </li>
                 ))
               }   

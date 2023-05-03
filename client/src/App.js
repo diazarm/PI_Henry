@@ -1,8 +1,10 @@
-import {Route, BrowserRouter } from "react-router-dom";
+import {Route, BrowserRouter, useLocation } from "react-router-dom";
 import {Home, LandingPage, DogDetails, FormAddDog, NavBar} from "../src/index"
 
 
 function App() {
+  const location = useLocation();
+  console.log(location.pathname);
   return (
     <BrowserRouter>
           <Route exact path="/" component={LandingPage}/>

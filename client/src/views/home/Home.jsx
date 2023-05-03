@@ -5,6 +5,7 @@ import getDogs from "../../redux/action";
 import Card from "../../components/card/Card";
 import Paginado from '../../components/paginate/Paginate';
 import style from "../home/Home.module.css";
+import SearchBar from "../../components/searchBar/SearchBar"
 
 
 const Home = () => {
@@ -62,6 +63,9 @@ const Home = () => {
                 </select>
             </div>
             </div>
+            <div>
+                <SearchBar/>
+            </div>
             <div className={style.acomodando}>
             <div className={style.cards}>
                     {currentCard?.map((ele) => {
@@ -69,7 +73,7 @@ const Home = () => {
                         return (
                             <div>
                                 <NavLink className={style.link} to={"/home/" + ele.id }>
-                                    <Card id= {ele.id} name={ele.name} image={ele.image} 
+                                    <Card key={ele.id} id= {ele.id} name={ele.name} image={ele.image} 
                                     weight={ele.weight} temperament={ele.temperament} />
                                 </NavLink>
                         </div>

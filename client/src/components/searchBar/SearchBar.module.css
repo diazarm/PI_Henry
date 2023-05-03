@@ -6,5 +6,7 @@
     text-align: center;
     padding: 10px 10px 10px 10px;
     border-radius: 15px;
-    margin:  auto;
+    position: fixed;
+    top: 40px;
+    right: 450px;
 }
