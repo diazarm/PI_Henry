@@ -1,9 +1,10 @@
-//import React from 'react'
-import { NavLink } from "react-router-dom";
+import React from 'react'
+import { NavLink, useLocation } from "react-router-dom";
 import style from "../landing/LandingPage.module.css";
 
 
 const LandingPage = ()=> {
+const location = useLocation();
     return (
       <div className={style.main_container}>
         <div className={style.main_left_container}>
