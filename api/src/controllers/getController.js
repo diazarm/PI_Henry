@@ -46,7 +46,7 @@ const searchDogByName = (name)=>{
 
 //crea nuevo perro en dbb
 const createNewDog = async(name, height, weight, life_span,image, created) =>{
-    if (name && height && weight && life_span &&image) {
+  if (name && height && weight && life_span &&image) {
         return await Dogs.create({name, height, weight, life_span,image,created}) //el await es pq devuelve la promesa.
     }else{ throw new Error('Faltan datos')};
 };
